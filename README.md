@@ -24,15 +24,19 @@ install.packages("tidyverse")
 TBC
 
 # Usage
+To use this pipeline, follow the below steps:
 ## Image preparation
 1. step 1
 2. step 2
 ## Image segmentation
 3. step 3
 4. step 4
-## Calculation of morphological features
+## Data cleaning (removal of bad fits)
 5. step 5
 6. step 6
+## Calculation of morphological features
+7. step 7
+8. step 8
 
 ## Troubleshooting
 TBC
