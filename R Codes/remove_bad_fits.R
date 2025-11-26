@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# Title: Bad fit removal
+# Title: Remove "BAD FIT" from results .csv files
 #
 # Description:
 #   Takes IDs of objects labelled as 'BAD FIT' and removes this object from the corresponding results
