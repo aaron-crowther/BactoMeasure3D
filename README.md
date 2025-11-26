@@ -20,31 +20,31 @@ This pipeline requires the following software and packages to be installed:
 # R code
 install.packages("tidyverse")
 ```
-## Installation
-TBC
 
 # Usage
 To use this pipeline, follow the below steps:
-## Image preparation
-1. step 1
-2. step 2
-## Image segmentation
-3. step 3
-4. step 4
-## Data cleaning (removal of bad fits)
-5. step 5
-6. step 6
-## Calculation of morphological features
-7. step 7
-8. step 8
+## Image preparation (FIJI)
+Images should contain a single channel and be saved as .tif for compatibility with ilastik.
+1. If microscopy images are saved as .nd2, run image_preparation_nd2_tif.ijm to convert files to .tif.
+## Image segmentation (ilastik)
+### Training
+2. Use one image (representative of that sample group) for training both "Pixel Classification" (i.e., "_Probabilites.h5") and "Object Classification [Inputs: Raw Data, Pixel Prediction Map]" (i.e., "_Object Identities.h5" and "_Object_Predictions.h5") in ilastik.
+### Batch processing
+4. Using the "_probabilities.h5" of the training image, batch process "_probabilities.h5" files (i.e., probability maps) for all remaining images in the dataset.
+5. Using the newly generated probability maps, batch process "_Object Identities.h5", "_Object Predictions.h5", and results tables (i.e., "_table.csv").
+## Calculation of morphological features (FIJI)
+5. Use geodesic_diameter_calculation_batch.ijm to calculate geodesic diameters in batch.
+6. Optionally, using the .tif files generated in Step 5, use additional_morpho_features_batch.ijm to calculate additional morphological features of the bacteria (e.g., surface area and volume).
+## Data cleaning (R)
+7. Use remove_badfits_results.R to remove objects classified as "BAD FIT" from results .csv files (either "_GeoDia.csv" or "_Results.csv" files).
+## Plotting and statistical analysis (R)
 
-## Troubleshooting
-TBC
+A more detailed protocol can be found at _______.
 
 ## Citation
 If you use this pipeline, please cite:
 
-Crowther A. (2025). BactoMeasure3D. GitHub. (https://github.com/aaron-crowther/BactoMeasure3D)
+Crowther A., Garcia-Maset R. (2025). BactoMeasure3D. GitHub. (https://github.com/aaron-crowther/BactoMeasure3D)
 
 Alternatively, please cite the following paper where this pipeline was first employed:
 
